@@ -18,6 +18,9 @@ router.get("/new",isLoggedIn,listingController.renderNewForm)
 //search route 
 router.get("/search", wrapAsync(listingController.search));
 
+router.get("/filter/:category", listingController.filter);
+
+
 //show,update,delete routes
 router.route("/:id").get(wrapAsync(listingController.showListing)).put(isLoggedIn,isOwner,upload.single('listing[image]'),validateListing,wrapAsync(listingController.updateListing)).delete(isLoggedIn,isOwner,wrapAsync(listingController.destroyListing));
 
@@ -39,6 +42,6 @@ router.get("/:id/edit",isLoggedIn,isOwner,wrapAsync(listingController.renderEdit
 //delete route
 // router.delete("/:id",isLoggedIn,isOwner,wrapAsync(listingController.destroyListing));
 
-router.get("/filter/:category", listingController.filter);
+
 
 module.exports=router;
