@@ -1,0 +1,180 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .filter {
+    text-align: center;
+    opacity: 0.7;
+    padding: 0.5rem 1rem;
+    border: 1px solid #aaa;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    color: black;
+  }
+
+  .filter:hover,
+  .filter.active {
+    opacity: 1;
+    background-color: #fe424d;
+    color: white;
+  }
+
+  .filter p {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+
+  .tax-info {
+    display: none;
+  }
+
+  .tax-toggle {
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 3.25rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+
+   #filters-wrapper {
+  top: 6rem;      
+  background-color:rgb(216, 216, 216);
+  z-index: 1000;    
+  padding: 1rem 2rem;
+  font-size: 25px;
+}
+
+  .filters-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .row {
+    padding: 20px 60px;
+  }
+
+  .card {
+    text-align: center;
+    padding-top: 10px;
+    margin: 10px;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .custom-switch:checked {
+    background-color: #fe424d !important;
+    border-color: #fe424d !important;
+  }
+
+  .listing-link {
+    text-decoration: none;
+  }
+
+  .card-img-top {
+    object-fit: cover;
+    height: 25rem;
+  }
+</style>
+
+<div id="filters-wrapper" class="filters-scroll">
+  <div id="filters" class="d-inline-flex">
+    <% const currentCategory = typeof category !== 'undefined' ? category.toLowerCase() : ''; %>
+
+    <a href="/listings?category=trending" class="filter <%= currentCategory === 'trending' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </a>
+    <a href="/listings?category=pools" class="filter <%= currentCategory === 'pools' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Pools</p>
+    </a>
+      <a href="/listings?category=castles" class="filter <%= currentCategory === 'castles' ? 'active' : '' %>">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castles</p>
+    </a>
+     <a href="/listings?category=mountains" class="filter <%= currentCategory === 'mountains' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+    </a>
+      <a href="/listings?category=farms" class="filter <%= currentCategory === 'farms' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-tractor"></i></div>
+      <p>Farms</p>
+    </a>
+      <a href="/listings?category=arctic" class="filter <%= currentCategory === 'arctic' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-snowflake"></i></div>
+      <p>Arctic</p>
+    </a>
+     <a href="/listings?category=domes" class="filter <%= currentCategory === 'domes' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-igloo"></i></div>
+      <p>Domes</p>
+    </a>
+     <a href="/listings?category=cities" class="filter <%= currentCategory === 'cities' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-mountain-city"></i></div>
+      <p>Cities</p>
+    </a>
+      <a href="/listings?category=boats" class="filter <%= currentCategory === 'boats' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-sailboat"></i></div>
+      <p>Boats</p>
+    </a>
+    <a href="/listings?category=rooms" class="filter <%= currentCategory === 'rooms' ? 'active' : '' %>">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </a>
+    <div class="tax-toggle ms-3">
+      <div class="form-check-reverse form-switch">
+        <input class="form-check-input custom-switch" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+        <label class="form-check-label" for="flexSwitchCheckDefault">
+          Display Total After Taxes
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3">
+  <% for (let listing of allListings) { %>
+    <a href="/listings/<%= listing._id %>" class="listing-link col">
+      <div class="card listing-card">
+        <img
+          src="<%= listing.image.url %>"
+          class="card-img-top"
+          alt="listing_image"
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= listing.title %></b><br />
+            <% if (listing.category) { %>
+              Category:
+              <%= listing.category.charAt(0).toUpperCase() + listing.category.slice(1) %><br />
+            <% } %>
+            &#8377; <%= listing.price.toLocaleString("en-IN") %> /per 2 days
+            <i class="tax-info">&nbsp;&nbsp;+18% GST</i><br />
+          </p>
+        </div>
+      </div>
+    </a>
+  <% } %>
+</div>
+
+<script>
+  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+  taxSwitch.addEventListener("change", () => {
+    let taxInfo = document.getElementsByClassName("tax-info");
+    for (let info of taxInfo) {
+      info.style.display = info.style.display !== "inline" ? "inline" : "none";
+    }
+  });
+</script>

@@ -1,0 +1,267 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: cornsilk !important;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.custom {
+  flex: 1;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.navbar {
+  height: 6rem;
+  background-color: white;
+}
+
+.navbar-nav {
+  font-size: 1.4rem;
+  margin-left: 1.2rem;
+  margin-right: 3rem;
+}
+
+.symbol {
+  color: #fe424d;
+  font-size: 3rem;
+  margin-left: 84px;
+  margin-top: 12px;
+}
+
+.para {
+  color: #fe424d;
+  margin-left: 64px;
+  font-size: 15px;
+}
+
+.nav-link {
+  color: black !important;
+}
+
+.f-info-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: rgb(216, 216, 216);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+  border-radius: 10px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.card-img-top {
+  border-radius: 10px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  height: 400px !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text p {
+  font-weight: 400;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+.edit-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+.show-img {
+  height: 30vh;
+}
+
+.btns {
+  display: flex;
+}
+
+.show-card {
+  padding: 20px 20px;
+  width: 870px !important;
+}
+
+.show-img {
+  height: 400px;
+  width: 700px !important;
+}
+
+#map {
+  height: 400px;
+  width: 80vh;
+}
+
+.searchbar {
+  margin-right: 350px;
+}
+
+.newresort,
+.signup,
+.login,
+.logout {
+  margin-right: 30px;
+  font-size: 20px !important;
+}
+
+.newresort {
+  color: #fe424d !important;
+}
+
+.simg {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  text-align: left;
+}
+
+.card-content {
+  font-weight: 600 !important;
+  font-size: 18px;
+}
+
+
+@media (max-width: 992px) {
+  .show-card {
+    width: 90% !important;
+    padding: 15px;
+  }
+  .show-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #map {
+    width: 100% !important;
+    height: 350px;
+  }
+  .searchbar {
+    margin-right: 0 !important;
+  }
+  .navbar-nav {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.2rem;
+  }
+  .newresort,
+  .signup,
+  .login,
+  .logout {
+    margin-right: 15px !important;
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .show-card {
+    width: 100% !important;
+    padding: 10px;
+  }
+  .show-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #map {
+    width: 100% !important;
+    height: 300px;
+  }
+  .searchbar {
+    margin-right: 0 !important;
+  }
+  .navbar-nav {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.1rem;
+  }
+  .newresort,
+  .signup,
+  .login,
+  .logout {
+    margin-right: 10px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .show-card {
+    width: 100% !important;
+    padding: 5px;
+  }
+  .show-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #map {
+    width: 100% !important;
+    height: 250px;
+  }
+  .searchbar {
+    margin-right: 0 !important;
+  }
+  .navbar-nav {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1rem;
+  }
+  .newresort,
+  .signup,
+  .login,
+  .logout {
+    margin-right: 5px !important;
+    font-size: 14px !important;
+  }
+}
