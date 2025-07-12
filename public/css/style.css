@@ -149,7 +149,7 @@ body::-webkit-scrollbar {
 }
 
 .searchbar {
-  margin-right: 350px;
+  margin-right: 400px;
 }
 
 .newresort,
@@ -250,7 +250,7 @@ body::-webkit-scrollbar {
     height: 250px;
   }
   .searchbar {
-    margin-right: 0 !important;
+    margin-right:0px !important;
   }
   .navbar-nav {
     margin-left: 0;
@@ -261,6 +261,7 @@ body::-webkit-scrollbar {
   .signup,
   .login,
   .logout {
+    margin-left:60px!important;
     margin-right: 5px !important;
     font-size: 14px !important;
   }
