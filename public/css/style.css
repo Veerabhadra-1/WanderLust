@@ -204,6 +204,36 @@ body::-webkit-scrollbar {
     margin-right: 15px !important;
     font-size: 18px !important;
   }
+
+  .navbar-collapse.show {
+    text-align: left;
+  }
+
+  .navbar-collapse.show .optionbar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem;
+  }
+
+  .navbar-collapse.show .optionbar a {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+    padding-left: 1rem;
+    text-align: left !important;
+    display: block;
+  }
+
+  .navbar-collapse.show .searchbar form.d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .navbar-collapse.show .search-inp,
+  .navbar-collapse.show .search-btn {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -261,7 +291,7 @@ body::-webkit-scrollbar {
   .signup,
   .login,
   .logout {
-    margin-left:60px!important;
+    margin-left: 60px !important;
     margin-right: 5px !important;
     font-size: 14px !important;
   }
