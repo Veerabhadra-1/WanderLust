@@ -4,6 +4,7 @@ require('dotenv').config();
 const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
+const PORT = process.env.PORT || 8080;
 const path=require("path");
 const methodOverride=require("method-override");
 const ejsMate=require("ejs-mate");
@@ -109,9 +110,10 @@ app.use((err,req,res,next)=>{
    res.status(statusCode).render("error.ejs",{err});
 });
 
-app.listen(8080,()=>{
-    console.log("Server is listening to port 8080");
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
+
 
 
 
