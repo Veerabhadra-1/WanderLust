@@ -8,3 +8,5 @@ This project gave me hands-on experience with both frontend and backend developm
  🔹 Maps: Mapbox
  🔹 Deployment: Render
  🔹 UI: Fully responsive and mobile-friendly 
+The app is live now!
+ 👉 https://lnkd.in/gtBKAv-S
